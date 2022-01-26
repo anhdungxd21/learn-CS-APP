@@ -1,0 +1,36 @@
+Code là chỉ là thức để mô tả cách triển khai, đằng sau nó là những khái niệm khổng lồ
+
+Chapter 1: A Tour of Computer System
+	Begin: You will learn practical skills 
+		- How to avoid strange numerical errors caused by the way that computers represent numbers.
+		- How to optimize your C code by using clever tricks that exploit the design of modern processors
+		  your processors and memory systems.
+		- How the compiler implements procedure calls and how to use this knowledge to avoid the security holes
+		  from buffer overflow vulnerabilities that plague(tai hoạ) network and Internet software.
+		- How to recognize and avoid the nasty errors during linking that confound the average programmer.
+		- How to write your own Unix shell, your own dynamic storage allocation package, and even your own Web server.
+		- The promises and pitfalls of concurrency, a topic of increasing importance as multiple processor cores
+		  are integrated onto single chips.
+	1.1 Information Is Bits + Context
+		- Tất cả thông tin trong hệ thống (include disk files), chương trình lưu trữ trong bộ nhớ, user data
+		  và data transferred across a network - được đại diện bởi các bits.
+		- Cách duy nhất để phân biệt bit thuộc đối tượng dữ liệu nào là ngữ cảnh chúng ta xem chúng.
+		- Trong bối cảnh khác nhau, một chuỗi byte có thể đại diện cho integer, float-point number,
+		  character string, or machine instruction.
+	1.2 Program Are Translated by Other Programs into Different Forms
+		Chương trình bắt đầu là một chương trình bậc cao, bởi vì nó có thể đọc và hiểu bởi con người.
+		Tuy nhiên, để có thể chạy chương trình, bản thân nó phải được 1 chương trình khác dịch thành chỉ 
+		thị ngôn ngữ máy bậc thấp. Những chỉ thị này sẽ được đóng gói trong form được gọi là 
+		"Execuatable object program" và lưu trữu dưới dạng nhị phân. Cũng được gọi dưới cái tên "executable object files".
+		- Việc dịch được thực hiện trong chuỗi 4 giai đoạn Preprocessor, compiler, assembler, and linker
+			- Preprocessor. preprocessor (cpp) chỉnh sửa chương trình C gốc theo chỉ thị bắt đàu với ký tự "#".
+				#include <studio.h> tells the preprocessor to read the contents of the systems header file stdio.h
+				and insert it directly into the program text. (hello.c -> hello.i)
+			- Compiler: The compiler (cc1) dịch chương trình hello.i - > hello.s. Nó chứa một assembly-language program.
+				Assembly language hữu dụng bởi vì nó cung cấp output chung cho các compiler khác nhau cho các ngôn ngữ
+				bậc cao khác nhau.
+			- Assembler: The assembler (as) dịch hello.s sang chỉ thị ngôn ngữ máy và đóng gói lại
+				"relocatable object program" và lưu kết quả thành file hello.o
+				file này chứa bytes to encode the instructions for function main.
+				Nếu đọc bằng text editer sẽ hiển thị ký tự vô nghĩa.
+			- Linker: Merge những file thư viện *.o và linker (ld) thành file hello có khả năng thực thi.
