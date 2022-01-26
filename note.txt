@@ -34,3 +34,38 @@ Chapter 1: A Tour of Computer System
 				file này chứa bytes to encode the instructions for function main.
 				Nếu đọc bằng text editer sẽ hiển thị ký tự vô nghĩa.
 			- Linker: Merge những file thư viện *.o và linker (ld) thành file hello có khả năng thực thi.
+	1.3 It Pays To Understand How Compilation System Work
+		- Optimizing program performance: 
+			- Trình compiler hiện đại là một công cụ tinh vi và thường sản xuất ra mã tốt.
+			  Là một programmer, chúng ta không cần biết hoạt động bên trong của trình biên dịch để
+			  viết mã hiệu quả. 
+			  Tuy nhiên, để đưa ra quyết định viết mã tốt trong các chương trình, chúng ta cần có hiểu biết
+			  cơ bản về mã cấp máy và cách trình biên dịch chuyển các câu lệnh C khác nhau thành mà máy
+			  - Liệu switch có nhanh hơn chuỗi if-else?
+			  - Bao nhiêu chi phí phát sinh bởi 1 lệnh gọi hàm?
+			  - Vòng lặp while có hiệu quả hơn vòng lặp for hay không?
+			  - Các tham chiếu con trỏ có hiệu quả hơn chỉ mục mảng không?
+			  - Tại sao vòng lặp chạy nhanh hơn nếu chúng ta tính tổng bằng biến local thay vì
+			    argument truyền bằng tham chiếu?
+			  - Làm thế nào một hàm có thể chạy nhanh hơn khi chúng ta chỉ cần sắp xếp lại dấu ngoặc đơn
+			    trong một biểu thức số học?
+			  -> Chapter 3, 5
+		- Understanding link-time errors:
+			- Một số lỗi lập trình phức tạp nhất có liên quan đến hoạt động của trình liên kết, đặc biệt
+				khi bạn đang cố gắng xây dựng các hệ thống phần mềm lớn
+				- what does it mean when the linker reports that is cannot resolve a reference?
+				- What is the difference between a static variable and a globel variable?
+				- What happens if you define two globel variables in different C files with the same name?
+				- What is the difference between a static library and a dynamic library?
+				- Why does it matter what order we list libraries on the command line?
+				- And scariest of all, why do some linker-ralated errors not appear until rune time?
+				-> Chapter 7
+		- Avoiding security holes:
+			- Nhiều năm trời, buffer overflow vulnerabilities đã gây ra nhiều lỗ hổng bảo mật trong mạng và máy
+				chủ internet.
+			- Các lỗ hổng này tồn tại bởi vì quá ít lập trình viên hiểu việc cần phải cẩn thận hạn chế số lượng
+				dữ liệu được chấp nhận từ nguồn không đang tin cậy.
+			- Bước đầu tiên khi học lập trình an toàn là biểu hậu quả của cách dữ liệu và thông tin điều khiển được lưu
+				trữ trên stack của chương trình.
+	1.4 Processors Read and Interpret Instruction Stored in Memory
+	
