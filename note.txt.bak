@@ -117,19 +117,4 @@ Chapter 1: A Tour of Computer System
 		- Bởi vì quy luật vật lý nên thiết bị lưu trữ lớn sẽ chậm hơn thiết bị lưu trữ nhỏ. Và thiết bị nhanh hơn sẽ đắt hơn.
 		- Rắc rối hơn nữa, khi công nghệ bán dẫn tiến bộ trong những năm qua, khoảng cách bộ xử lý - bộ nhớ này tiếp tục tăng lên.
 			Việc làm cho bộ vi xử lý chạy nhanh hơn dễ dàng hơn và rẻ hơn là làm cho main memory chạy nhanh hơn.
-		- Để thoả thuận với vấn đề processor-memory gap, người thiết kế hệ thông bổ xung thêm thiết bị lưu trữ bé hơn và nhanh hơn
-			được gọi là cache memories (or simply caches) nó đón vai trò là các khu vực tạm thời cho thông tin mà bộ xử lý có thể cần
-			trong tương lai gần (the near future).
-		- Một trong những bài học quan trọng của quyển sách này là những nhà lập trình ứng dụng người có nhận thức với cache memories
-			có thể khai thác chúng để cải thiện hiệu năng của chương trình theo một mức độ lớn.
-	1.6 Storage Devices Form a Hierarchy
-		- Khái niệm chèm thiế bị lưu trữ nhở hơn, nhanh hơn (cache memory) giữa bộ xử lý và thiết bị lớn hơn, chậm hơn (main memory)
-			hoá ra là một ý tưởng chung.
-	1.7 The Operatin System Manages the Hardware
-		- Chúng ta có thể coi Hệ điều hành như một layer of software xen kẽ giữa chương trình ứng dụng và phần cứng.
-		- Tất cả lỗ lực của một chương trình ứng dụng để thao tác phần cứng đều phải thông qua hệ điều hành.
-		- Hệ điều hành có 2 mục đích chính:
-			1. Bảo vệ phần cứng khỏi bị lạm dụng bởi các chương trình đang chạy.
-			2. Cung cấp cho các ứng dụng các cơ chế đơn giản và thống nhất để thao tác với các thiết bị phần cứng cấp thấp
-				phức tạp và thường rất khác biệt.
 				
