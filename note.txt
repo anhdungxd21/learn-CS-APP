@@ -132,4 +132,32 @@ Chapter 1: A Tour of Computer System
 			1. Bảo vệ phần cứng khỏi bị lạm dụng bởi các chương trình đang chạy.
 			2. Cung cấp cho các ứng dụng các cơ chế đơn giản và thống nhất để thao tác với các thiết bị phần cứng cấp thấp
 				phức tạp và thường rất khác biệt.
-				
+		1.7.1 Processes:
+			- Khi một chương trinh như là hello chạy trên một hệ thống hiện đại, hệ điều hành cung cấp ảo tưởng rằng
+				chương trình là chương trình duy nhất chạy trên hệ thống.
+			- Chương trình dường như có quyền sử dụng độc quyền cả bộ xử lý, bộ nhớ chính và thiết bị I/O.
+			- Bộ xử lý dường như chỉ thực thi chỉ thị của chương trình, từng dòng một mà không có sự gián đoạn.
+			- Câu lênh và dữ liệu dường như chỉ là đối tượng duy nhất trong bộ nhớ hệ thống.
+			- Illusions được cung cấp bởi khái niệm tiến tr, một trong những ý tưởng quan trọng và thành công nhất
+				của khoa học máy tính.
+			- Một tiến trình (a process) là cách hệ điều hành trừu tượng một chương trình đang chạy. Nhiều tiến trình có thể
+				chạy đồng thời trên cùng một hệ thống, và mỗi tiến trình dường như có quyền sử dụng riêng hệ thống.
+			- By concurrentlty, muốn nói rằng chỉ thị của một tiến trình bị xáo trộn cùng với những chỉ thị của tiến trình khác.
+			- Trong hây hết các hệ thống, có nhiều tiến trình chạy hơn là số CPU dùng để chạy chúng.
+			- Các hệ thống truyển thông chỉ có thể thực thi một chương trình tại một thời điểm, trong khi các bộ xử lý đa lõi
+				mới hơn có thể thực thi một số chương trình đồng thời. Trong cả hai trường hợp, một CPU đơn dường như có thể
+				thực thi nhiều tiến trình đồng thời bằng cách chuyển đổi tiến trình giữa chúng.
+				-> Hệ điều hành thực hiện sự xáo trộng này bằng cơ chế được biết tới là context switching (chuyển đổi ngử cảnh).
+			- Hệ điều hành theo dõi tất cả thông tin trạng thái (state) mà tiến trình cần để chạy. Trạng thái (state) biết tới
+				như là context, bao gốm thông tin như là giá trị hiện thời của PC, register file, and nội dung của main memory.
+			- Tại thời điểm này, một hệ thống đơn xử lý chỉ có thể thực thi câu lệnh cho một tiếng trình. Khi HĐH quyết định chuyển
+				quyền kiểm soát từ tiến trình hiện tại sang tiến trình mới, nó sẽ thực hiện context switch bằng cách lưu lại 
+				nội dung của tiến trình hiện tại, khôi phục context của tiến trình mới, và sau đó truyền lại quyền kiểm soát cho
+				tiến trình mới.
+		1.7.2 Threads
+			- Mặc dù nghĩ tiến trình là một luồng kiếm soát đơn, trong hệ thống hiện đại một tiến trình thực sự bao gồm nhiều
+				đơn vị thực thi, gọi là threads, mỗi đơn vị chạy trong cùng một ngữ cảnh tiến trình chia sẻ chung code vài
+				global data.
+			- Threads là một mô hình lập trình ngày càng quan trọng do yêu cầu về tính đồng thời trong các máy chủ mạng,
+				vì việc chia sẻ dữ liệu giữ các threads đơn giản hơn giữ các process, và vì thread hiệu quả hơn process.
+			- Multi-threading cũng là một cách làm cho chương trình chạy nhanh hơn khi có nhiều vi xử lý.
