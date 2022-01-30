@@ -161,3 +161,54 @@ Chapter 1: A Tour of Computer System
 			- Threads là một mô hình lập trình ngày càng quan trọng do yêu cầu về tính đồng thời trong các máy chủ mạng,
 				vì việc chia sẻ dữ liệu giữ các threads đơn giản hơn giữ các process, và vì thread hiệu quả hơn process.
 			- Multi-threading cũng là một cách làm cho chương trình chạy nhanh hơn khi có nhiều vi xử lý.
+		1.7.3 Virtual Memory
+			- Virtual memory là một sựu trừu tượng cung cấp cho mỗi tiến trình ảo tưởng rằng chỉ duy nhất tiến trình đón
+				sử dụng main memory.
+			- Mỗi tiến trình có một khung nhìn thống nhất về memory, được gọi là virtual address space.
+			- Đối với Linux, vùng trên cùng của không gian địa chỉ được dành riêng cho mã và dữ liệu của hệ điều hành chung
+				cho tất cả các tiến trình. Vùng thấp hơn của không gian địa chỉ giữ mã và dữ liệu được xác định bởi tiến trình
+				của người dùng.
+			- Virtual address space được nhìn thấy bởi mỗi tiến trình bao gồm một số vùng được xác định cụ thể, mỗi vùng có
+				một mục đích cụ thể.
+				* Program code and data: Code bắt đầu tại cùng một địa chỉ cố định cho tất cả các tiến trình, tiếp theo là các
+										vị trí dữ liệu tương ứng với các biến C toàn cục. Các vùng mã và dữ liệu được khởi tạo
+										trực tiếp từ content của tệp đối tượng thực thi - trong trường hợp này là hello
+				* Heap: The code and data area được theo sau ngay lập tức bởi run-time heap
+					- Không như code and data area, có kích thước cố định khi tiến trình bắt đầu chạy, heap mở rộng và co lại
+						động tại run-time do kết quả của các lệnh gọi đến thư viện chuẩn C như malloc và free.
+				* Shared libraries: Gần giữa của không gian địa chỉ là vùng giữ nhưng đoạn mà và dữ liệu cho shared libraries
+						như là C standard library và math library. Khái niệm shared library là một khái niệm mạnh mẽ nhưng khó.
+				* Stack: ở trên cùng virtual address space là user stack mà trình biên dịch sử dụng để triển khai các lệnh
+						gọi hàm.
+					- Giống như heap, user stack mở rộng và co lại trong quá trình thực thi chương trình. Đặc biệt, mỗi khi
+						gọi một hàm, stack sẽ tăng lên. Mỗi khi return from function nó sẽ co lại.
+				* Kernel virtual memory : Trên cùng của address space dành rieng cho kernel. Application program không được phép
+						đọc và ghi content tại vùng này hoặc gọi trực tiếp function được định nghĩa trong code của kernel.
+						Thay vào đó, chúng phải gọi hạt nhân để thực hiện các hoạt động này.
+		1.7.4 Files
+			- Một file là một chuỗi các byte không hơn không kém.
+			- Mọi thiết bị I/O bao gồm disks, keyboard, display, thâm chí network được mô hình hoá như là một file.
+			- Tất cả input và output trong hệ thông được thực hiện bằng cách đọc và ghi các file, sử dụng một tập hợp 
+				nhỏ các lệnh gọi hệ thống biết tới như Unix I/O.
+			- Tuy nhiên, khái niệm đơn giản và tao nhã này cực kỳ mạnh mẽ, vì nó cung cấp cho các ứng dụng một cái nhìn
+				thống nhất về tất cả các thiết bị I/O đa dạng có thể chứa trong hệ thống.
+	1.8 Systems Communicate with Other Systems Using Network
+		- Chúng ta coi hệ thống như một tập hợp phần cứng và phần mềm bị cô lập. Trong thực tế các hệ thông thường được
+			liên kết với nhau thông qua network.
+		- Từ góc nhìn của một hệ thống riêng lẻ, network có thể coi như là một thiết bị I/O
+		- Khi hệ thống copy một chuỗi các bytes từ main memory tới network adapter, luồng dữ liệu qua mạng đến một máy tính khác,
+			thay vì đi vào local disk drive. Tương tự, hệ thống có thể đọc dữ liệu được gửi từ cỗ máy khác và copy dữ liệu đó vào
+			main memory.
+		- Với sự ra đời của Internet, sao chép thông tin từ máy này sang máy khác đã trở thành một trong những ứng dụng quan
+			trọng nhất của hệ thống máy tính.
+	1.9 Important Themes
+		1.9.1 Amdahl's Law
+			- The main idea is that when we speed up one part of a system, the effect on the overall system performance depends
+				on both how significant this part was and how much it sped up.
+		1.9.2 Concurrency and Parallelism
+			- Trong suốt lịch sử của máy tính kỹ thuật số, hai nhu cầu luôn là dộng lực thúc đẩy cải tiến: chúng tôi muốn chúng
+				làm được nhiều hơn và chúng tôi muốn chúng chạy nhanh hơn. Cả hai nhân tố được cái thiện khi bộ xử lý làm nhiều
+				việc hơn trong cùng một thời điểm.
+			- Concurrency(đồng thời) chỉ khái niệm chung về một hệ thống có nhiều hoạt động đồng thời.
+			- Parallelism(song song) chỉ việc sử dụng concurrency(đồng thời) để làm cho hệ thống chạy nhanh hơn.
+			-
