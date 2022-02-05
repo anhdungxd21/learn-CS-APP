@@ -211,4 +211,37 @@ Chapter 1: A Tour of Computer System
 				việc hơn trong cùng một thời điểm.
 			- Concurrency(đồng thời) chỉ khái niệm chung về một hệ thống có nhiều hoạt động đồng thời.
 			- Parallelism(song song) chỉ việc sử dụng concurrency(đồng thời) để làm cho hệ thống chạy nhanh hơn.
-			-
+			* Thread-Level Concurrency
+				- Hình thức đồng thời này cho chép nhiều người dùng tương tác với một hệ thống cùng lúc, chẳng hạn như nhiều người
+					muốn lấy các page từ một web server.
+				- Nó cũng cho phép một user tham gia vào nhiều tác vụ đồng thời, chẳng hạn có 1 Web browser ở 1 cửa sổ, trình xử lý
+					văn bản ở một cửa sổ khác và streaming music cùng một lúc.
+				- Cho đến gần đây, hầu hết các máy tính thực tế đều được thực hiện bởi một bộ xử lý duy nhất, ngay cả khi bộ xử lý đó
+					phải chuyển đổi giữa nhiều tác vụ. Cấu hình này được biết đến như một hệ thống đơn xử lý (uniprocessor system).
+				- Khi xây dựng một hệ thống bao gồn nhiều bộ xử lý đều nằm dưới sử kiểm soát của một nhân hệ điều hành duy nhất,
+					chúng ta có một hệ thống đa xử lý (multiprocessor system).
+				- Multi-core processors có một vài CPU (được gọi là "core") được tích hợp bên trong một con Chip (integrated-circuit chip)
+				- Mỗi CPU có cho riêng mình L1 và L2 cahes, L1 cache được chia làm 2 phần, một để giữ instruction được nạp gần đây
+					và một để giữ data.
+				- Các core chia sẻ các cache level cao hơn cũng như interface với main memory.
+				- Hyperthreading, đôi khi được gọi là simulataneous multi-threading (đa luồng đồng thời), là một công nghệ cho phép
+					một CPU đơn thực thi nhiều luồng điều khiển.
+					-> Nó liên quan đến việc có nhiều bản sao của một số phần cứng CPU, chẳng hạn như program counter và register file
+						trong khi chỉ có bản sao đơn lẻ của các thành phần khác của phần cứng, chẳng hạn như các đơn vị thực hiện
+						số học dấu phẩy động (floating-point arithmeitc)
+					-> Trong khi một bộ xử lý thông thường yêu cầu khoảng 20 000 chu kỳ xung nhịp để chuyển đổi giữa các luồng khác nhau
+						thì một bộ xử lý siêu phân luồng quyết định luồng nào của nó sẽ thực thi trên cơ sở từng chu kỳ. Nó cho phép CPU
+						tận dụng tốt hơn các tài nguyên xử lý của nó.
+						- Nếu một thread phải đợi một số data được load vào cache, CPU có thể tiến hàng thực thi ở một thread khác.
+				- Việc sử dụng đa xử lý có thể cải thiện hiệu suất theo hai cách:
+					1. Giảm nhu cầu mô phỏng đồng thời khi thực hiện nhiều tác vụ.
+					2. Có thể chạy một chương trình đơn lẻ nhanh hơn, nhưng chỉ khi chương trình đó được thể hiện dưới dạng nhiều luồng
+						có thể thực thi song song một cách hiệu quả.
+				-> Vì vậy, mặc dù các nguyên tắc của concurrency(đồng thời) đã được hình thành và nghiên cứu trong hơn 50 năm,
+					sự ra đời của các hệ thống đa lõi và siêu phân luồn đã làm gia tăng rất nhiều mong muốn tìm cách viết các chương trình
+					ứng dụng có thể khai thác song song mức luồng có sẵn với phần cứng.
+			*Instruction-Level Parallelism
+				- Ở mức trừu tượng thấp hơn nhiều(at a much lower level of abstraction), các bộ xử lý hiện đại có thể thực thi nhiều
+					chỉ thị cùng một lúc, được gọi là instruction-level parallelism
+			* Single-Instruction, Multiple-Data (SIMD) Parallelism
+				- At the lowset level, many modern processors have special hardware that allow
