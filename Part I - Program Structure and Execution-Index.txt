@@ -1,0 +1,11 @@
+2. Representing and Mantipulating Infomation (Start at 07/02/2022 - 13/02/2022)
+	2.1 Infomation Storage - 07-02
+	2.2 Integer Representations - 08-02
+	2.3 Integer Arithemic - 09-02
+	2.4 Floating Point - 10-02
+	2.5 Summary and flash card-11-02
+
+3. Machine-Level Representation of Programs
+4. Processor Architecture
+5. Optimizing Program Performance
+6. The Memory Hierarchy
