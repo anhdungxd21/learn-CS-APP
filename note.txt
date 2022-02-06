@@ -244,4 +244,14 @@ Chapter 1: A Tour of Computer System
 				- Ở mức trừu tượng thấp hơn nhiều(at a much lower level of abstraction), các bộ xử lý hiện đại có thể thực thi nhiều
 					chỉ thị cùng một lúc, được gọi là instruction-level parallelism
 			* Single-Instruction, Multiple-Data (SIMD) Parallelism
-				- At the lowset level, many modern processors have special hardware that allow
+				- At the lowset level, many modern processors have special hardware that allows a single instruction to cause multitple
+					operations to be performed in parallel, a mode known as single-instruction, multiple-data(SIMD) parallelism.
+				- SIMD instruction hầu hết được cung cấp để tăng tốc các ứng dụng xử lý dữ liệu hình ảnh, âm thanh và video.
+				- Mặc dù một số trình biên dịch cố gắng tự động trích xuất song song SIMD từ các chương trình C, một phương pháp
+					đáng tin cậy hơn là viết chương trình sử dụng các kiểu dữ liệu vector đặc biệt được hỗ trợ trong các trình
+					biên dịch như gcc.
+		1.9.3 The Importance of Abstractions In Computer Systems.
+			- The use of abstractions is one of the most important concepts in computer science.
+				->vd: Một khía cạnh của thực hành lập trình tốt là tạo ra một application program interface (API) cho một tập hợp 
+					các chức năng cho phép lập trình viên sử dụng code mà không cần phải đi sâu vào hoạt động bên trong của nó.
+			- Những ngôn ngữ lập trình khác nhau cung cấp các hình thức và mức độ hộ trợ khác nhau cho sự trừu tượng hoá.
