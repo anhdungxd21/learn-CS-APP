@@ -1,0 +1,55 @@
+2.1 Information Storage
+	- Máy tính hiện tại lưu trữ và xử lý thông tin được biểu thị dưới dạng tín hiệu hai giá trị. Các chữ số nhị phân hoặc bit
+		tạo thành nền tảng của cuộc cách mạnh kỹ thuật số.
+	- Two-valued signal có thể dễ dàng biểu diễn, lưu trữ và truyền đi. vd: lỗ được đục hoặc không được đục trên thẻ lỗ, diện áp
+		cao hoặc thấp trên dây dẫn, hoặc từ tính được định hướng theo chiều kim đồng hồ hoặc ngược chiều kim đồng hồ.
+	- Mạch điện tử cho việc lưu trữ thực hiện tính toán trên 2 giá trị tín hiệu rất đơm giản và đáng tin cậy, cho phép các nhà
+		sản xuất tích hợp hàng triệu, hoặc thậm chí hàng tỉ của các mạch như vậy trên một chip silicon
+	- Trong trường hợp cô lập, một bit đơn lẻ không hữu ích lắm. Khi nhóm các bit với nhau và áp dụng một số diễn giải mang lại ý nghĩa
+		cho các mẫu bit có thể khác nhau, có thể biểu diễn các phần tử của bất kỳ tập hợp hữu hạn nào.
+	- 3 đại diện quan trọng nhất của số :
+		-> Unsigned encoding dưa trên ký hiệu nhị phân truyền thống, đại diện cho số lớn hơn hoặc bằng 0
+		-> Two’s-complement encodings là cách phổ biến nhất buổi diễn số có dấu, số nguyên âm và nguyên dương
+		-> Floating-point encodings là phiên bản base-2 của số thực
+		Máy tính thực hiện các phép toán số học, chẳng hạn như phép cộng và phép nhân, với biểu diễn khác nhau, tương ứng trên
+		số nguyên và số thực.
+	- Máy tính sử dụng một số lượng bit giới hạn để mã hoá một số và do đó một số hoạt động có thể bị tràn(overflow) khi kết quả quá lơn
+		để được biểu diễn.
+	- Mặt khác, số học máy tính số nguyên đáp ứng nhiều tính chấp quen thuộc của số học số nguyên thực.
+	- Máy tính có thể không tạo ra kết quả như mong đợi, nhưng ít nhất nó nhất quán!
+	* floating-point
+	- Số học dấy phẩu động có các tính chất toán học hoàn toàn khác. Tích của một tập hợp các số dương sẽ luông là số dương, mặc dù
+		phần tràn sẽ mang lại giá trị đặc biệt +∞.
+	- số học dấy phẩy động (Floating-point arthmetic) không có tính liên kết do độ chính xác hữu hạn của biểu diễn.
+	- Sự khác biệt tính chất toán học giứ integer và floating-point bắt nguồn từ sự khác biệt trong cách chúng xử lý tính hữu hạn của các
+		biểu diễn: - Integer có thể mã hoá trong một pham vi nhỏ nhưng chính xác
+				   - floating-point mã hoá phạm vi rộng nhưng chỉ xấp xỉ.
+	-> Bằng cách nghiên cứu các biểu diễn số trong thực tế, ta có thể hiểu phạm vi giá trị có thể được biểu diễn và các thuộc tính của phép
+		toán số học khác nhau. Sử hiểu biết này rất quan trọng để viết các chương trình hoạt động chính xác với đầy đủ các giá trị số và
+		có thể di động trêb các kết hợp khác nhau của máy, hệ điều hành và trình biên dịch.
+		- Mố số lỗ hổng bảo mật máy tính đã phát sinh do một số yếu tố tinh vi của máy tính số học.
+		- Ở thời đại trước, các lỗi trương trình chỉ gây bất tiện cho mọi người khi chúng tính cờ được kích hoạt, thì hiện nay có rất nhiều
+			tin tặc cố gắng khai thác bất kỳ lỗi nào mà họ có thể tìm thấy để truy cập trái phép vào hệ thống của người khác. Điều này đặt ra
+			nghĩa vụ cao hơn đối với các lập trình viên để hiểu cách chương trình của họ hoạt động và cách chúng có thể thực hiện để hành xử
+			theo nhưng cách không mong muốn.
+	2.1.1 Hexadecimal Notation
+		- Thay vì truy cập các bit riêng lẻ trong bộ nhớ, hầu hết máy tính sử dụng những khối 8 bit(hoặc các byte) là đơn vị bộ nhớ có thể 
+			cấp địa chỉ.
+		- Một chương trình cấp máy(machine-level) xem bộ nhớ như một mảng rất lớn các byte, được gọi virtual memory.
+		- Mỗi byte bộ nhớ được xác định bằng một số duy nhất được gọi là địa chỉ của nó, và tập hợp tất cả các địa chỉ có thể được gọi là
+			không gian địa chỉ ảo(virtual address space).
+		- Virtual address space chỉ là một hình ảnh khái niệm được trình bày cho chương trình cấp máy (machine-level). Việc triển khai thực
+			sự sử dụng sự kết hợp của dynamic random access memory (DRAM), flash memory, disk storage, specical hardware, and operatin system
+			software để cung cấp cho chương trình những gì có vẻ như là một mảng byte nguyên khối.
+	2.1.2 Data Sizes
+	2.1.3 Addressing and Byte Ordering
+	2.1.4 Representing Strings
+	2.1.5 Representing Code
+	2.1.6 Introduction to Boolean Algebra
+	2.1.7 Bit-Level Operations in C
+	2.1.8 Logical Operations in C
+	2.1.9 Shift Operations in C
+2.2 Integer Representations
+2.3 Intger Arithmetic
+2.4 Floating Point
+2.5 Sumary
