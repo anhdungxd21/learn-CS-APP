@@ -78,6 +78,9 @@
 		- Lập trình viên nên cố gắng làm cho các chương trình có thể di động trên các máy và compiler khác nhau.
 			-> Một khía cạnh của tính di động là làm cho chương trình không nhạy cảm với kích thước chính xác của các loại dữ liệu khác nhau.
 	2.1.3 Addressing and Byte Ordering
+		- Đối với các đối tượng chương trình kéo dài nhiều byte, chúng ta phải thiết lập 2 quy ước
+			1. Địa chỉ của đối tượng
+			2. Cách chúng ta sắp xếp thứ tự các byte trong bộ nhớ.
 	2.1.4 Representing Strings
 	2.1.5 Representing Code
 	2.1.6 Introduction to Boolean Algebra
