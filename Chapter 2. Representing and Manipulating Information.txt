@@ -81,6 +81,31 @@
 		- Đối với các đối tượng chương trình kéo dài nhiều byte, chúng ta phải thiết lập 2 quy ước
 			1. Địa chỉ của đối tượng
 			2. Cách chúng ta sắp xếp thứ tự các byte trong bộ nhớ.
+		- Trong hầu hết máy tính, một object nhiều byte được được lưu trữ dưới dạng một chuỗi byte liền kề, với địa chỉ của đối tượng được
+			cung cấp bởi địa chỉ nhỏ nhất của các byte được sử dụng.
+		- Để sắp xếp các byte đại diện cho một đối tượng, có 2 quy ước chung:
+			1. Coi như có w-bit integer được đại diện như sau [w-1, w-2, ...., 1, 0], w-1 là bit cao nhất và 0 là thấp nhất, Giả định w là bội
+				của 8, các bit đó có thể nhóm thành các byte, với byte cao nhất [w-1, w-2, ..., w-8] với byte thấp nhất [7, 6, ..., 0]\
+				và các byte khác có bit ở giữa.
+			2. Một số máy chọn lưu object trong memory sắp xếp từ lest significant byte to most
+			-> 	1. The former convention-where the least significant byte comes first-is referred to little endian.
+				2. The latter convention-where the most significant byte comes first-is referred to big endian.
+		- Hầu hết các máy tương thích với Intel đều hoạt động độc quyền ở chế độ little-endian.
+		- Nhiều chip vi xử lý gần đây là loại bi-endian, có nghĩa là chúng có thể config để vận hành little endian hoặc big endian.
+			Trong thực tế, byte ordering sẽ trở nên cố định khi một hệ điều hành cụ thể được chọn. Vd: Chip ARM có thể vận hành
+			ở little-endian hoặc big-endian, nhưng 2 hệ điều hành phổ biến cho chips arm là Android và IOS chỉ vận hành ở chế độ little-endian.
+		- Với hầu hết lập trình viên, byte ordering được sử dụng bởi máy tình của họ là hoàn toàn vô hình, các chương trình biên dịch cho một
+		trong hai loại máy cho kết quả giống hệt nhau.
+		- Đôi khi thứ tự byte trở thành vấn đề
+			- 1. Khi dữ liệu nhị phân được giao tiếp qua mạng giữa các máy khác nhau. Một vấn đề phổ biến là dữ liệu được tạo ra bởi một máy little-endian
+				được gửi đến một máy big-endian và ngược lại, dẫn đến việc các byte trong word bị đảo ngược thứ tự đối với chương trình nhận.
+			-> Để tránh những vấn đề như vậy, mã được viết cho các ứng dụng mạng phải tuân theo quy ước đã thiết lập về thứ tự byte để đản bảo máy gửi
+				chuyển đổi biểu diễn bên trong của nó sang chuẩn mạng, trong khi máy nhận chuyển đổi chuẩn mạng thành biểu diễn bên trong nó.
+			- 2. Trường hợp thứ 2 mà thứ tự byte trở nên quan trọng là khi xem xét các chuỗi byte biểu diễn dữ liệu số nguyên. Điều này xảy ra thường xuyên
+				khi kiểm tra các trương trình cấp máy.
+			- 3. Trường hợp 3 khi mà chương trình được viết ra normal type của hệ thống.Trong ngôn ngữ C, điều này có thể thực hiện bằng cách
+				cast hoặc union để cho phép một đối tượng được tham chiếu theo một kiểu dữ liệu khác mà nó được tạo ra. Các thủ thuật viết mà như vậy 
+				không được khuyến khích đối với hầu hết lập trình ứng dụng, nhưng chúng có thể khá hữu ích và thậm chi cần thiết cho lập trình cấp hệ thống
 	2.1.4 Representing Strings
 	2.1.5 Representing Code
 	2.1.6 Introduction to Boolean Algebra
