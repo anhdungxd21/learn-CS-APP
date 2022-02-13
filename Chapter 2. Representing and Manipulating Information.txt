@@ -107,6 +107,11 @@
 				cast hoặc union để cho phép một đối tượng được tham chiếu theo một kiểu dữ liệu khác mà nó được tạo ra. Các thủ thuật viết mà như vậy 
 				không được khuyến khích đối với hầu hết lập trình ứng dụng, nhưng chúng có thể khá hữu ích và thậm chi cần thiết cho lập trình cấp hệ thống
 	2.1.4 Representing Strings
+		- Một string trong C được mã hoá dưới dạng một mảng các ký tự và được kết thúc bởi ký tự null (having value 0)
+		- Mỗi ký tự được đại diện bởi một số bộ mã hoá tiêu chuẩn, phổ biến nhất là ASCII.
+		-> Do đó nếu chạy show_byte thông thường với các đối số "12345" và 6(bao gồm ký tự kết thúc), nhận được kết quả 31 32 33 34 35 00. Quan sát mã ASCII cho 
+			chữ số thập phân x là 0x3x và byte kết thúc có thể biểu diễn hex 0x00. Kết quả này tương tự này sẽ nhận được trên bất kỳ hệ thống nào sử dụng ASCII 
+			làm mã ký tự của nó, không phụ thuộc vào quy ước về thứ tự byte và kích thước word. Do đó, dữ liệu văn bản độc lập với nền tảng hơn dữ liệu nhị phân.
 	2.1.5 Representing Code
 	2.1.6 Introduction to Boolean Algebra
 	2.1.7 Bit-Level Operations in C
