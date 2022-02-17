@@ -113,9 +113,25 @@
 			chữ số thập phân x là 0x3x và byte kết thúc có thể biểu diễn hex 0x00. Kết quả này tương tự này sẽ nhận được trên bất kỳ hệ thống nào sử dụng ASCII 
 			làm mã ký tự của nó, không phụ thuộc vào quy ước về thứ tự byte và kích thước word. Do đó, dữ liệu văn bản độc lập với nền tảng hơn dữ liệu nhị phân.
 	2.1.5 Representing Code
+		- Các loại máy khác nhau sử dụng các lệnh và mã hoá khác nhau và không tương thích. Ngay cả những bộ xử lý giống hệt nhau chạy hệ điều hành khác nhau
+			chạy các hệ điều hành khác nhau cũng có sự khác biệt trong quy ước mã hoá của chúng và do đó không tương thích với hệ nhị phân.
+			Mã hoá nhị phân hiến khi portable across các kết hợp khác nhau giữa máy và hệ điều hành.
+		- Một khái niệm cơ bản về hệ thống máy tính là một chương trình, từ quan điểm của máy, chỉ đơn giản là một chuỗi các byte. Máy không có thông tin về
+			chươn trình nguồn ban đầu, ngoại trừ một số bảng phụ được duy trì để hỗ trợ gỡ lỗi.
 	2.1.6 Introduction to Boolean Algebra
+		- | for OR
+		- & for AND
+		- ~ for NOT
+		- ^ for XOR
 	2.1.7 Bit-Level Operations in C
+		- Một tính năng hữu ích của C là nó hỗ trợ các hoạt động Boolean bitwise
+		- Một cách sử dụng phổ biến của bit-level là thực hiện phép toán masking, masking là một mẫu các bit được lựa chọn một word.
 	2.1.8 Logical Operations in C
+		- C cũng cung cấp các toán tử logic ||, &&, and ! tương ứng với OR, AND và NOT
+		- Các phép toán logic coi bất kỳ đối số khác 0 là đại diện đúng và đối số 0 là đại diện sai. Chúng trả về 1 hoặc 0, cho biết kết quả tương ứng
+			là true hoặc false.
+		- Quan sát rằng một phép toán bitwise sẽ có hành vi khớp với hành vi của phép đối logic của nó chỉ trong trường hợp đặc biệt trong đó các đối số
+			bị giới hạn ở 0 hoặc 1
 	2.1.9 Shift Operations in C
 2.2 Integer Representations
 2.3 Intger Arithmetic
