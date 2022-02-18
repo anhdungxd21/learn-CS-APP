@@ -132,8 +132,35 @@
 			là true hoặc false.
 		- Quan sát rằng một phép toán bitwise sẽ có hành vi khớp với hành vi của phép đối logic của nó chỉ trong trường hợp đặc biệt trong đó các đối số
 			bị giới hạn ở 0 hoặc 1
+		- Điểm khác biệt quan trong thứ 2 giữa các toán tử logic '&&' và '||' so với các toán tử cấp bit '&' và '|' của chúng là các toán tử không 
+			đánh giá đối số thứ hai của chúng nếu kết quả của biểu thức có thể được xác định bởi đánh giá đối số đầu tiên.
 	2.1.9 Shift Operations in C
+		- C cũng cung cấp một tập hợp các phép toán dịch chuyển để dịch chuyển các mẫu bit sang trái và sang phải.
+		- Nghĩa là, x được dịch chuyển k bit sang trái, loại bỏ k bit most significant  và lấp đầy đầu bên phải với k số không.
+		- Sô lượng dịch chuyển phải là một giá trị trong khoảng 0 đến w-1. Các phép toán dịch chuyển liên kết từ trái sang phải, do đó 
+			x << j << k tương đương với (x<<j)<<k.
+		- Có một phép toán dịch chuyển sang bên phải tương ứng, được viết bằng C là x >> k, nhưng nó có một hành vi hơi tinh vi. Nói chung, máy móc
+			hỗ trợ hai hình thức dịch chuyển phải:
+				1. Logical - Một logical dịch phải, lấp đầy trái với k zeros
+				2. Arthmetic - Một dịch chuyển phải arthmetic lấp đầy đầu bên trái với k lần lặp lại của w-1 (most significant bit)
+		- C standard không xác định chính xác loại right shift nào nên được sử dụng với các số có dấu - có thể sử dụng arthmetic hoặc logical shift
+			có thể được sử dụng.
+			-> Điều này không may có nghĩa là bất kỳ mã nào giả định dạng này hay dạng khác sẽ có khả năng gặp các vấn đề về tính di động.
+				Tuy nhiên, trên thực tế, hầu hết tất cả các tổ hợp máy/ trình biên dịch đều sử dụng dịch chuyển phải số học cho dữ liệu có dấu
+				và nhiều lập trình viên cho rằng trường hợp này xảy ra. Mặc khác, đối với dữ liệu không dấu shift bit sẽ là logical
+		- Ngược lại với C, java có một định nghĩa chính xác về cách thực hiện các right shift. x >> k theo arithmetic trong khi x >>> k shift là logical
 2.2 Integer Representations
+	- Trong phần này, chúng tôi mô tả hai cách khác nhau mà các bit có thể được sử dụng để mã hoá số nguyên-một cách chỉ có thể biểu diễn các số 
+		không âm và một có thể biểu diễn các số âm, số 0 và số dương.
+	2.2.1 Integral Data Type
+	2.2.2 Unsigned Encodeings
+	2.2.3 Two's-Complement Encodeings
+	2.2.4 Conversions between Signed and Unsigned
+	2.2.5 Signed versus Unsigned in C
+	2.2.6 Expanding the Bit Representations of a Number
+	2.2.7 Truncating Number
+	2.2.8 Advice on Signed versus Unsigned
 2.3 Intger Arithmetic
 2.4 Floating Point
 2.5 Sumary
+
