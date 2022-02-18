@@ -153,7 +153,14 @@
 	- Trong phần này, chúng tôi mô tả hai cách khác nhau mà các bit có thể được sử dụng để mã hoá số nguyên-một cách chỉ có thể biểu diễn các số 
 		không âm và một có thể biểu diễn các số âm, số 0 và số dương.
 	2.2.1 Integral Data Type
+		- C hỗ trợ nhiều kiểu dữ liệu tích phân
+			1. số nguyên hữu hạn, cùng với các phạm vi giá trị mà chúng có thể cho các chương trình 32 và 64 bit "điển hình". Mỗi loại có thể chỉ định
+				kích thước từ khoá char, short, long, cũng như dấu của chúng.
+				- Dựa trên phân bổ byte, các kích thước khác nhau cho phép các phạm vi giá trị khách nhau đươc biểu diễn. Phạm vi phục thuộc vào máy
+					duy nhất được chỉ định cho máy chỉ định kích thước long. Hầu hết các chương trình 64bit sử dụng biẻu diễn 8 byte, 32 bit - 4 byte.
+				- Các tiêu chuẩn C xác định phạm vi giá trị tối thiểu mà mỗi kiểu dữ liệu phải có để đại diện
 	2.2.2 Unsigned Encodeings
+		- 
 	2.2.3 Two's-Complement Encodeings
 	2.2.4 Conversions between Signed and Unsigned
 	2.2.5 Signed versus Unsigned in C
