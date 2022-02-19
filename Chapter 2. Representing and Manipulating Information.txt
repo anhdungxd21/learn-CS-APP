@@ -162,6 +162,27 @@
 	2.2.2 Unsigned Encodeings
 		- 
 	2.2.3 Two's-Complement Encodeings
+		- đối với nhiều ứng dụng, đại diện cho các giá trị âm. Biểu diễn phổ biến nhất của các số có dấu là bổ xung hai phần (two's-complement).
+			Điều này được xác định bằng cách đại diện bit most significant của word có trọng số âm.
+		- Bit quan trọng nhất w-1 còn được gọi là sign bit. "weight" của nó là -2w-1 phủ định của "weight" trong một biểu thức không dấu.
+			Khi sign bit đặt là 1 thì nó đại diện cho số âm, và khi được set là 0 thì giá trị sẽ là không âm.
+		1. phạm vi của two's-Complement là không đối xứng:
+			|TMin| = |TMax| +1, nghĩa là không có số dương cặp với Tmin. Như vậy sẽ dẫn dến một số tính cất đặc biện của số học twos-complement và có thể
+			là nguồn gốc của các lỗi chương trình tinh vi.
+			- Sự bất đối xứng này nảy sinh do một nửa số mẫu bit( những mẫu với sign bit set thành 1) đại diện cho số âm, trong khi một nửa (những mẫu
+				bit được đặt thành 0) đại diện cho số không âm. Vì 0 lá số không âm, điều này có nghĩa là nó có thể đại diện cho một số dương ít hơn số âm.
+		2. Giá trị không dấu lớn nhất chỉ lớn hơn 2 lần giá trị two's-complement UMax = 2TMax +1. Tất cả các mẫu bit biểu thị số âm trong two's-complement 
+			đếu trở thành giá trị dương trong biểu diễn không dấu.
+		- -1(âm 1) có các bit giống với UMax - một chuỗi tất cả đều là 1.
+		- Số 0 được đại diện bởi 1 chuối tất cả đều là 0.
+		- Các tiêu chuẩn C không yêu cầu các số nguyên có dấu phải được biết diễu dưới dạng two's-complement nhưng gần như tất cả các máy đề làm vậy
+		- Các lập trình viên quan tâm đến việc tối da hoá tính di động trên tất cả các máy có thể không nên giả định bất kỳ phạm vi giá trị có thể biểu
+			diễn cụ thể nào, cũng như không nên giả định bất kỳ đại diện cụ thể nào của các số có dấu.
+			- Mặt khác, nhiều chương trình được viết với giả định là biểu diễn bổ sung 2 phần (two's-complement) của các số có dấu và các phạm vi "điển hình"
+				được hiển thị ở F2.9 và F 2.10, và các chương trình này có thể portable trên nhiều loại máy tính và trình biên dịch.
+		- Tiểu chuẩn Java khá cụ thể về các phạm vi và biểu diễn kiểu dữ liệu số nguyên. Nó yêu cầu biểu diễn bổ xung 2 phần (twos-complement) với các phạm vi
+			chính xác được hiển thị cho trường hợp 64-bit. Trong Java, kiểu dữ liệu đơn được gọi là byte thay vì char, các yêu cầ chi tiết này nhằm cho phép
+			các chương trình java hoạt động giống nhau bất kể máy hoặc hệ điều hành đang chạy chúng.
 	2.2.4 Conversions between Signed and Unsigned
 	2.2.5 Signed versus Unsigned in C
 	2.2.6 Expanding the Bit Representations of a Number

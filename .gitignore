@@ -1,2 +1,4 @@
 # Ignore bak file
 *.bak
+*.exe
+*.o
