@@ -152,6 +152,16 @@
 2.2 Integer Representations
 	- Trong phần này, chúng tôi mô tả hai cách khác nhau mà các bit có thể được sử dụng để mã hoá số nguyên-một cách chỉ có thể biểu diễn các số 
 		không âm và một có thể biểu diễn các số âm, số 0 và số dương.
+	- B2T - function - Binary to Two’s complement
+	- B2U - Function - Binary to unsigned
+	- U2B - Function - Unsigned to binary
+	- U2T - Function - Unsigned to two's-Complement
+	- T2B - Function - Two's complement to binary
+	- T2U - Function - Two's complement to unsigned
+	
+	- TMin - Constant - Minimum two's-Complement value
+	- TMax - Constant - Maximum two's-Complement value
+	- UMax - Constant - Maximum unsigned value
 	2.2.1 Integral Data Type
 		- C hỗ trợ nhiều kiểu dữ liệu tích phân
 			1. số nguyên hữu hạn, cùng với các phạm vi giá trị mà chúng có thể cho các chương trình 32 và 64 bit "điển hình". Mỗi loại có thể chỉ định
@@ -184,7 +194,16 @@
 			chính xác được hiển thị cho trường hợp 64-bit. Trong Java, kiểu dữ liệu đơn được gọi là byte thay vì char, các yêu cầ chi tiết này nhằm cho phép
 			các chương trình java hoạt động giống nhau bất kể máy hoặc hệ điều hành đang chạy chúng.
 	2.2.4 Conversions between Signed and Unsigned
+		- C cho phép ép các kiểu dữ liệu số khác nhau
+		- Tác dụng của việc ép kiểu là giữ cho các giá trị bit giống hệt nhau nhưng thay đổi cách các bit này được diễn giải.
+			-> Đây là quy tắc chung về cách hầu hết các triển khai C xử lý chuyển đổi giữa các số có dấu và không có dấu với cùng kích thước word-các giá trị
+				số có thể thay đổi nhưng các bit pattern thì không.
 	2.2.5 Signed versus Unsigned in C
+		- C hỗ trợ cả số học có dấu và không dấu cho tất cả các kiểu dữ liệu số nguyên của nó.
+		- Mặc dù tiêu chuẩn C không chỉ định cách biểu diễn cụ thể của các số có dấu, nhưng hầu hết cả các máy để sử dụng phần bù của hai. Nói chung, hầu hết
+			các số là signed theo mặc định.
+		- C cho phép chuyển đổi giữa không dấu và có dấu. Mạc dù tiêu chuẩn C không chỉ định chính xác cách thực hiện chuyển đổi này, nhưng hầy hết các hệ thống
+			đều tuân theo quy tắc biểu diễn bit bên dưới không thay đổi
 	2.2.6 Expanding the Bit Representations of a Number
 	2.2.7 Truncating Number
 	2.2.8 Advice on Signed versus Unsigned

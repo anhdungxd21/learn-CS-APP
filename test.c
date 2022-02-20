@@ -38,9 +38,11 @@ void reverse_array(int a[], int cnt){
 
 int main (){
     short x = 12345;
-    short mx = -x;
+    unsigned short mx = 53191;
     show_bytes((byte_pointer) &x, sizeof(short));
     show_bytes((byte_pointer) &mx, sizeof(short));
     printf(" %d ", sizeof(short));
+
+    printf("%d", (short) mx);
     return 0;
 }
