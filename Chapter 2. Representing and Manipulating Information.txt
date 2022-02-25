@@ -205,9 +205,48 @@
 		- C cho phép chuyển đổi giữa không dấu và có dấu. Mạc dù tiêu chuẩn C không chỉ định chính xác cách thực hiện chuyển đổi này, nhưng hầy hết các hệ thống
 			đều tuân theo quy tắc biểu diễn bit bên dưới không thay đổi
 	2.2.6 Expanding the Bit Representations of a Number
+		- Một hoạt động phổ biến là chuyển đổi giữa các số nguyên có kích thước từ khác nhau trong khi vẫn giữ nguyên giá trị số. Điều này có thể không thực
+			hiện được khi kiểu dữ liệu đích quá nhỏ để thể hiện giá trị mong muốn. Tuy nhiên luôn có thể chuyển đổi từ một kiểu dữ liệu nhỏ hơn sang lớn hơn.
+		- Để chuyển đỏi một số không dấu sang một kiểu dữ liệu lớn hơn, chúng ta có thể chỉ cần thêm các số 0 ở đầu vào.
+		- Để chuyển đổi số two's-complement sang kiểu dữ liệu lớn hơn, quy tắc là thực hiện mở rộng dấu hiệu, thêm các bản sao của bit quan trọng nhất vào biểu
+			diễn.
 	2.2.7 Truncating Number
 	2.2.8 Advice on Signed versus Unsigned
+		- Như chúng ta đã thấy, việc chuyển ngầm từ có dấu sang không dấu dẫn đến một số hành vi không trực quan. Các tính năng không trực quan thường dẫn đến
+			lỗi chương trình và những tính năng liên quan đến các sắc thái của truyền ngầm có thể đặc biệt khó nhìn thấy. Vì quá trình ép kiểu diễn ra mà không
+			có bât kỳ dấu hiệu rõ ràng nào trong mã, các lập trình viên thường bỏ qua các tác động của nó.
+		- Nhiều cách mà các đặc điểm tinh vi của số học không dấu, và dặc biệt là sự chuyển đổi ngầm định từ có đấu sang không dấu, có thể dẫn đến lỗi hoặc lỗ
+			hổng. Trên thực tế, ít ngôn ngữ nào khác ngoài C hỗ trợ số nguyên không dấu. -> những nhà thiết kế ngôn ngữ khác coi chúng là những rắc rối nhiều
+			hơn những gì chúng đang có.
+			Vd: Java chỉ hỗ trợ các số ngyên có dấu và số học two's-complement. Toán tử dịch phải bình thường >> được đản bảo thực hiện một dịch chuyển số học.
+				Toán tử >>> được định nghĩa để thực hiện chuyển dịch phải logica
+		- Các giá trị không dấu rất hữu ích khi chúng ta muốn coi các word chỉ là tập hợp các bit không có diễn giải số.
+			-> Điều này xảy ra, vd khi đóng gói một word với các flag mô tả các điều khiện Boolean khác nhau. Địa chỉ tự nhiên là không có dấu vì vậy các nhà lập
+				trình hệ thống nhận thấy các loại không có dấu là hữu ích. Các giá trị không dấu cũng hữu ích khi triển khai các gói toán học cho số modular
+				và số học đa chính xác, trong đó các số được biểu diễn bằng mảng của word (array of word)
 2.3 Intger Arithmetic
+	- Nhiều lập trình mới bắt đầu ngạc nhiên khi thấy rằng phép cọng hai số dương có thể mang lại kết quả âm và phép so sánh x ,y có thể mang kết quả khác với phép
+		so sánh x-y<0
+	- Các thuộc tính này là hiện vật của bản chất hữu hạn của số học máy tính. Hiểu các sắc thái của số học máy tính có thể giúp các lập trình viên viết mã đáng
+		tin cậy hơn.
+	2.3.1 Unsigned Addition
+		- Xem sét 2 số không âm x và y, 0 <= x,y <2^w. Mỗi giá trị  này có thể được biểu diễn bằng một số không dấu w-bit
+		- Tuy nhiên, nếu chúng ta tính tổng của chúng, chúng ta có một phạm vi khả dĩ 0 <= x + y <= (2^w+1) -2. Để biểu diễn phép cộng này có thể yêu cầu w+1 bits.
+		- Nếu chúng ta duy trì tổng dưới dạng số (w +1)-bit và thêm nó vào một giá trị khác, chúng ta có thể yêu cầu w+2 bit..v.v.v.
+			-> "Làm phát kích thước từ" tiếp tục này có nghĩa là chúng ta không thể đặt bất kỳ ràng buộc nào vào kích thước từ cần thiết để thể hiện đầy đủ kết quả
+				của các phép toán số học.
+		- Một số ngôn ngữ lập trình, chẳng hạn như Lisp, thực sự hỗ trợ số học có kích thước tuỳ ý để cho phép các số nguyên có khích thước bất kỳ (trong giới hạn
+			bộ nhớ của máy tính).
+		- Thông thường hơn, các ngôn ngữ lập trình hỗ trợ số học kích thước cố định và do đó các phép toán như "cộng" và "nhân" khác với các phép toán đối ứng
+			của chúng đối với số nguyên.
+		
+	2.3.2 Two’s-complement Addition
+	2.3.3 Two’s-complement Negation
+	2.3.4 Unsigned Multiplication
+	2.3.5 Two’s-complement Multiplication
+	2.3.6 Multiplying by Constant
+	2.3.7 Dividing by Powers of 2
+	2.3.8 Final Thoughts on Integer Arithmetic
 2.4 Floating Point
 2.5 Sumary
 
