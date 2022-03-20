@@ -239,7 +239,8 @@
 			bộ nhớ của máy tính).
 		- Thông thường hơn, các ngôn ngữ lập trình hỗ trợ số học kích thước cố định và do đó các phép toán như "cộng" và "nhân" khác với các phép toán đối ứng
 			của chúng đối với số nguyên.
-		
+		- Tổng của 9 và 12 là 21, có biểu diễn [10101]. Nhưng nếu chúng ta loại bỏ bit cao nhất, chúng ta nhận được [0101], nghĩa là, giá trị thập phân 5.
+			Điều này khớp với giá trị 21 mod 16 = 5;
 	2.3.2 Two’s-complement Addition
 	2.3.3 Two’s-complement Negation
 	2.3.4 Unsigned Multiplication
